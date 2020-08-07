@@ -7,7 +7,5 @@ import java.util.List;
 
 public interface VideoRepository extends JpaRepository<Video,Long> {
 
-    Video getById(Long id);
-
     List<Video> findAll();
 }

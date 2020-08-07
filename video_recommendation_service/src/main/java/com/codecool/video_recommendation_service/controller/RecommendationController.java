@@ -18,4 +18,10 @@ public class RecommendationController {
     public Recommendation getRecommendationById(@PathVariable("id") Long id){
         return recommendationRepository.getByVideoId(id);
     }
+
+    @PostMapping("/post")
+    public boolean addRecommendation(){
+        //TODO
+        return false;
+    }
 }
