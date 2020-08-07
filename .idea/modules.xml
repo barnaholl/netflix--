@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/service-registry/service-registry.iml" filepath="$PROJECT_DIR$/service-registry/service-registry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/video_recommendation_service/video_recommendation_service.iml" filepath="$PROJECT_DIR$/video_recommendation_service/video_recommendation_service.iml" />
       <module fileurl="file://$PROJECT_DIR$/videoproviderservice/videoproviderservice.iml" filepath="$PROJECT_DIR$/videoproviderservice/videoproviderservice.iml" />
     </modules>
   </component>
