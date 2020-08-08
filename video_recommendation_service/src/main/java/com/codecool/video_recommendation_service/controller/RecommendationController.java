@@ -4,6 +4,8 @@ import com.codecool.video_recommendation_service.model.Recommendation;
 import com.codecool.video_recommendation_service.repository.RecommendationRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/recommendation")
 public class RecommendationController {
@@ -17,6 +19,11 @@ public class RecommendationController {
     @GetMapping("/{id}")
     public Recommendation getRecommendationById(@PathVariable("id") Long id){
         return recommendationRepository.getByVideoId(id);
+    }
+
+    @GetMapping("/all/{id}")
+    public List<Recommendation> getAllRecommendationById(@PathVariable("id") Long id){
+        return recommendationRepository.findAllByVideoId(id);
     }
 
     @PostMapping("/post")

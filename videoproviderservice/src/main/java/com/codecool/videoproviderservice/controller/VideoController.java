@@ -2,7 +2,9 @@ package com.codecool.videoproviderservice.controller;
 
 
 import com.codecool.videoproviderservice.model.Recommendation;
+import com.codecool.videoproviderservice.model.RecommendationList;
 import com.codecool.videoproviderservice.model.Video;
+import com.codecool.videoproviderservice.model.VideoWithRecommendations;
 import com.codecool.videoproviderservice.repository.VideoRepository;
 import com.codecool.videoproviderservice.service.RecommendationProvider;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,10 +43,21 @@ public class VideoController {
         return environment.getProperty("server.port");
     }
 
-    @GetMapping("/test/{id}")
-    public Recommendation test(@PathVariable("id") String id){
-        return recommendationProvider.getRecommendationByVideoId(id);
+    @GetMapping("/{id}")
+    public VideoWithRecommendations test(@PathVariable("id") String id){
+       Video videoData=videoRepository.getById(Long.valueOf(id));
+       VideoWithRecommendations videoWithRecommendations=new VideoWithRecommendations();
+       videoWithRecommendations.setId(videoData.getId());
+       videoWithRecommendations.setName(videoData.getName());
+       videoWithRecommendations.setUrl(videoData.getUrl());
+       Recommendation recommendation=recommendationProvider.getRecommendationByVideoId(id);
+       //TODO ask why
+       //RecommendationList recommendationList=recommendationProvider.getAllRecommendationByVideoId(id);
+       //videoWithRecommendations.setRecommendations(recommendationProvider.getAllRecommendationByVideoId(id));
+
+        return  videoWithRecommendations;
     }
+
 
 
 }
