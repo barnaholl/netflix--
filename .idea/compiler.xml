@@ -6,12 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="service-registry" />
+        <module name="api-gateway" />
         <module name="video_recommendation_service" />
+        <module name="service-registry" />
         <module name="videoproviderservice" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="api-gateway" target="11" />
       <module name="service-registry" target="11" />
       <module name="video_recommendation_service" target="11" />
       <module name="videoproviderservice" target="11" />
@@ -20,6 +22,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api-gateway" options="-parameters" />
       <module name="service-registry" options="-parameters" />
       <module name="video_recommendation_service" options="-parameters" />
       <module name="videoproviderservice" options="-parameters" />
